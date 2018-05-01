@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>Signin Template for Bootstrap</title>
+
+<!-- Bootstrap core CSS -->
+<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Custom styles for this template -->
+<link href="../css/signin.css" rel="stylesheet">
+
+
+<script>
+<!-- cookie: 쿠키 이름		return : cookie값			-->
+	function getCookie(param) {
+		// 			console.log(cookie);
+		cookiess = document.cookie.split('; ');
+		str = param;
+		for (var i = 0; i < cookiess.length; i++) {
+			var c = cookiess[i];
+			if (c.indexOf(str) >= 0) {
+				return c.substring(str.length + 1);
+			}
+		}
+	}
+
+	function deleteCookie(cookieName) {
+		setCookie(cookieName, "", -1);
+	}
+
+	function setCookie(cookieName, cookieValue, expires) {
+		var today = new Date();
+		today.setDate(today.getDate() + expires)
+		document.cookie = cookieName + "=" + encodeURIComponent(cookieValue)
+				+ "; " + "path=/; " + "expires=" + today.toGMTString();
+	}
+
+	function initUserId() { //화면 로딩시 쿠키에 설정된 사용자 값을 확인하여 설정해준다.
+		var id = getCookie("userId");
+		var remember = getCookie("remember");
+
+		if (remember = "true") { //쿠키가 있는 경우
+			$('#userId').val(id); //사용자 아이디를 설정
+
+			//비번입력창으로 포커스
+			$('#inputPassword').focus();
+
+			//remember me checkbox check
+			$('#remembercheckbox').prop('checked', true);
+		}
+	}
+
+	//event handler init
+	function initEvent() {
+		$("#")		
+		
+		
+		//remember check box change()
+		//체크박스
+		$("#remembercheckbox").change(function() {
+
+			if ($(this).prop("checked")) {
+				//체크가 된경우
+				Cookies.set('userId', $("#userId").val(),{ expires: 30 });
+				Cookies.set("remember", "checked",{ expires: 30 });
+				//setCookie("userId", $("#userId").val(), 30);
+				//setCookie("remember", "checked", "30");
+			}else{
+			//체크가 안 된경우
+			Cookies.remove("userId");
+			Cookies.remove("remember");
+			//deleteCookie("userId");
+			deleteCookie("remember")
+			}
+		})
+	}
+
+	//문서로딩
+	$(function() {
+		initUserId();
+		initEvent();
+	})
+</script>
+
+</head>
+
+<body>
+
+	<div class="container">
+
+		<form class="form-signin"
+			action="<%=request.getContextPath()%>/LoginServlet" method="post">
+			<h2 class="form-signin-heading">로그인</h2>
+
+			<label for="userId" class="sr-only">UserId</label> <input type="text"
+				id="userId" name="userId" class="form-control"
+				placeholder="아이디를 입력하세요." required autofocus> <label
+				for="password" class="sr-only">Password</label> <input
+				type="password" id="inputPassword" name="password"
+				class="form-control" placeholder="비밀번호를 입력하세요." required>
+			<div class="checkbox">
+				<label> <input type="checkbox" value="remember-me"
+					id="remembercheckbox"> 자동저장
+				</label>
+			</div>
+			<button class="btn btn-lg btn-primary btn-block" type="submit">로그인</button>
+		</form>
+
+	</div>
+	<!-- /container -->
+
+
+</body>
+</html>

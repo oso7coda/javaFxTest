@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="../js/jquery-3.3.1.min.js"></script>
+	<script>
+		$(function() {
+			$('img').hover(function(){
+				var src0 = $(this).attr('src');
+				$(this).attr('src3',src0);
+				
+			})
+			
+			$('img').dblclick(function() {
+				$(this).hide();
+				cnt = $('img:visible').length;
+				if(cnt==0){
+					$('button').show();
+				}
+			});
+
+			$('button').click(function() {
+				$('img').show();
+				$(this).hide();
+			});
+			oriAttr="";
+			$('img').mouseover(function(){
+				oriAttr=$(this).attr('src');
+				setAttr = $(this).attr('src2');
+				 $(this).attr('src',setAttr);
+			});
+			$('img').mouseout(function(){
+				 $(this).attr('src',oriAttr);
+			});
+			//		$('img').on('dblclick',function(){});
+			//		$('img').bind('dblclick',function(){});
+			
+			
+		});
+	</script>
+	<style>
+		.showBtn {
+			display: block;
+		}
+
+		button {
+			display: none;
+		}
+
+		img {
+			width: 200px;
+			height: 200px;
+		}
+	</style>
+</head>
+
+<body>
+	<img src="../images/pobi.jpg" src2="../images/bono2.png">
+	<img src="../images/chopa.jpg" src2="../images/bono1.png">
+	<img src="../images/dangdnag1.jpg" src2="../images/bono3.png">
+	<img src="../images/mung.jpg" src2="../images/bono4.png">
+	<br>
+	<button type="button">보이기</button>
+</body>
+</html>

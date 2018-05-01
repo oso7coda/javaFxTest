@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="../js/jquery-3.3.1.min.js"></script>
+	<script>
+		$(function() {
+			//&('input[type=button]')
+			$(':button').on("click",function(i){
+//				res=""
+//				$(':checkbox:checked').each(function(i){
+//					
+//				res += $(this).val();
+//				})
+//				alert(res);
+//				
+				
+				res=""
+				$.each($(':checkbox:checked'),(function(i){
+					if(i!=0){
+						res+=", "
+					}
+				res += $(this).val();
+				}))
+				alert(res);
+				//$('input[type=checkbox]')
+				//$(':checkbox:checked').
+				//html , text  >> 일반태그에서 값을 가져올때
+				//val은 입력, 선택할때 value 값을 가져온다
+			})
+		});
+	</script>
+</head>
+
+<body>
+	<form>
+		취 미 :
+		<input type="checkbox" name="hobby" value="여행" checked>여행
+		<input type="checkbox" name="hobby" value="장기">장기
+		<input type="checkbox" name="hobby" value="바둑">바둑
+		<input type="checkbox" name="hobby" value="독서">독서
+		<input type="checkbox" name="hobby" value="낚시">낚시<br><br>
+		<input type="button" value="전송">
+	</form>
+
+</body>
+</html>

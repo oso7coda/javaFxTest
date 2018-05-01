@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="../js/jquery-3.3.1.min.js"></script>
+	<script>
+		$(function() {
+			$("#removeTitle").click(function() {
+				$.each($('img'), function() {
+					imgsrc.removeAttr();
+				});
+			});
+
+
+
+			$('#setTitle').click(function() {
+				$('img').attr('title', function() {
+					imgsrc = $(this).attr('src');
+					a = imgsrc.lastIndexOf("/");
+					b = imgsrc.lastIndexOf(".");
+					title = imgsrc.substr(a + 1, b);
+
+					return title;
+				});
+
+
+
+
+
+
+
+
+
+				//첫번째
+				//			$.each($('img'),function(i){
+				//				
+				//				//$(this).attr("title",i+"번째입니다");
+				//				imgsrc = $(this).attr('src');
+				//				a = imgsrc.lastIndexOf("/");
+				//				b = imgsrc.lastIndexOf(".");
+				//				
+				//				title = imgsrc.substr(a+1,b);
+				//				$(this).attr('title',title);
+				//				
+				//				
+				//				
+				//			})
+			})
+		});
+	</script>
+</head>
+
+<body>
+	<button type="button" id="setTitle">title</button>
+	<button type="button" id="removeTitle">remove</button>
+	<br>
+	<img src="../images/풍차.jpg" alt="풍차" width="150">
+	<img src="../images/pobi.jpg" alt="희애" width="150">
+	<img src="../images/수지1.jpg" alt="수국2" width="150">
+	<img src="../images/수지.jpg" alt="수국3" width="150">
+	<br>
+</body>
+</html>

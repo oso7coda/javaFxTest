@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="../js/jquery-3.3.1.min.js"></script>
+	<script>
+		$(function() {
+			$(document).mousemove(function(){
+				info = "page 좌표 : "+event.pageX + ","+event.pageY
+				+"\n"+"screen 좌표 : "+event.screenX+","+event.screenY;
+				$('div').html("<h1>"+info+"</h1>")
+				if((event.pageX<=200) &&(event.pageY<=200)){
+					$('body').append("<img src='../images/pobi.jpg'>");
+					$('body').append("<img src='../images/수지.jpg'>");
+				}
+			})
+		});
+	</script>
+</head>
+<style>
+	body {
+		background-color: #eef;
+	}
+
+	div {
+		padding: 20px;
+		border: 2px solid red;
+	}
+</style>
+
+<body>
+	<div></div>
+</body>
+</html>

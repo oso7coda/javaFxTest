@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.3.1.min.js"></script>
+<script>
+	$(function(){
+//		$('#un').prop('disabled', true);
+		
+		$('#wrap').click(function(){
+			$('p').wrap('<div/>');
+//			$('#wrap').prop('disabled', true);
+//			$('#all').prop('disabled', true);
+//			$('#un').removeAttr('disabled');
+		})
+		$('#un').click(function(){
+			$('p').unwrap();
+//			$('#wrap').removeAttr('disabled');
+//			$('#all').removeAttr('disabled');
+//			$('#un').prop('disabled', true);
+		})
+		$('#all').click(function(){
+			$('p').wrapAll('<div/>');
+//			$('#wrap').prop('disabled', true);
+//			$('#all').prop('disabled', true);
+//			$('#un').removeAttr('disabled');
+		})
+    })
+</script>
+</head>
+<style>
+	div{
+		width : 50%;
+		height : 50px;
+		background : yellow;
+	}
+</style>
+<body>
+	<p>This is a paragraph.</p>
+	<p>This is another paragraph.</p>
+	<br>
+	<button id="wrap" type="button">감싸기</button>
+	<button id="all" type="button">전체감싸기</button>
+	<button id="un" type="button">해제</button>
+</body>
+</html>

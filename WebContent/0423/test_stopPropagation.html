@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="../js/jquery-3.3.1.min.js"></script>
+	<script>
+		$(function() {
+			//$("span").css("background","yellow");
+			$('button').click(function(){
+				$(this).css("border","2px solid red");
+				//event.stopPropagation();
+				return false;
+			});
+			$('span').click(function(){
+				$(this).css("border","2px solid green");
+				//event.stopPropagation();
+				return false;
+				
+			});
+			$('div').bind("click",function(){
+				$(this).css("border","2px solid blue");
+				event.stopPropagation();
+				
+			})
+
+
+
+
+
+
+		});
+	</script>
+
+	<style>
+		div{
+			background: pink;
+			width: 500px;
+			height: 500px;
+			padding: 20px;
+		}
+
+		span{
+			display: inline-block;
+			background: yellow;
+			width: 200px;
+			height: 200px;
+			padding: 30px;
+		}
+	</style>
+
+
+
+</head>
+
+<body>
+	<div>
+		<span id="span">
+			<button>
+				클릭
+			</button>
+		</span>
+	</div>
+	<br>
+	<a href="http://www.daum.net">Daum사이트 가기</a>
+
+</body>
+</html>

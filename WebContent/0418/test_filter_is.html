@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.3.1.min.js"></script>
+<script>
+	$(function(){
+		//필터 -> :parent
+		//$('p:parent')	//자식을 가지고 있는 p 태그를 선택하라
+		//$('p').parent() // p태그의 부모를 찾아 선택
+		//p태그클릭시의 부모를 비교(is를 이용)
+		$("p").click(function(){
+			if($(this).parent().is('div')){
+				//div에 태두리를 주겟다
+				$(this).parent().css("background","#b3f617");
+			}else{
+				alert("작업대상이 아니래");
+			}
+		});
+    })
+</script>
+</head>
+<body>
+
+	<div>
+		<p>진달래 꽃이 피었습니다.</p>
+	</div>
+	
+	<p>무궁화 꽃이 피었습니다.</p>
+	
+	<div>
+		<p>유채꽃이 피었습니다.</p>
+	</div>
+	
+	
+</body>
+</html>

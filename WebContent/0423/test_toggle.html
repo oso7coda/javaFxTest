@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="../js/jquery-3.3.1.min.js"></script>
+	<script>
+		$(function() {
+			$('div').hide();
+			$('#toggle').click(function() {
+				$('div').slideToggle();
+			});
+
+			$('#prevent').click(function() {
+				//나이를 입력하세요
+				prompAge = prompt("나이를 입력하세요");
+				//15세 미만 이면 페이지이동 할수 없도록 한다
+				if (prompAge<15) {
+					event.preventDefault();
+					alert("나이 제한 입니다");
+				}
+			});
+
+
+
+
+
+
+
+
+
+		});
+	</script>
+</head>
+
+<body>
+	<h1>이순신</h1>
+	<h2>조선시대의 명장</h2>
+	<br>
+	<a id="toggle" href="#">자세히 보기</a>&nbsp;
+	<a id="prevent" href="https://www.naver.com/">네이버 홈  보기</a>
+
+	<br>
+	<div id="result">
+		이순신은 조선 중기의 무신이다. 본관은 덕수, 자는 여해, 시호는 충무이며, 한성 출신이다. 문반 가문 출신으로 1576년 무과에 급제하여 그 관직이 동구비보 권관, 훈련원 봉사, 발포진 수군만호, 조산보 만호, 전라좌도 수군절도사를 거쳐 정헌대부 삼도수군통제사에 이르렀다. 본인 스스로에게 엄격하고 청렴한 생활을 하고 깊은 효심을 지닌 선비의 모범으로 평가된다.
+	</div>
+
+
+
+</body>
+
+</html>

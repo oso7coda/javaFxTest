@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="../js/jquery-3.3.1.min.js"></script>
+	<script>
+		$(function() {
+			xhttp = new XMLHttpRequest();
+			$('#text').on('click', function() {
+
+				$.ajax({
+					url: 'text.jsp',
+					type: 'get'
+						//,data:''
+						,
+					dataType: 'text',
+					success: function(res) {
+						datas = res.split("/");
+						code = "<ul>"
+						$.each(datas, function(i) {
+							code += "<li>" + datas[i] + "</li>";
+						})
+						code += "</ul>"
+						$("#res1").html(code);
+					},
+					error: function() {
+						alert("실패");
+					}
+				});
+			}) //end text
+
+			$('#json').on('click', function() {
+				$.ajax({
+					url: 'json.jsp',
+					type: 'get',
+					dataType: 'JSON',
+					success: function(res) {
+						code = "<ul>"
+						$.each(res, function(i) {
+							code += "<li>" + res[i] + "</li>";
+						});
+						code += "</ul>"
+						$("#res2").html(code);
+					},
+					error: function() {
+						//alert("실패");
+					}
+				});
+
+			}); //end json
+			
+			//second json 
+			$('#jsonObject').on('click',function(){
+				$.ajax({
+					url:'jsonObject.jsp'
+					,type:'get'
+					,dataType: 'json'
+					,success: function(res) {
+						code = "<ul>"
+							$.each(res, function(i) {				
+								code += "<li>" + res[i] + "</li>";
+								})	
+									code += "</ul>"
+									$("#res3").html(code);
+									},
+									error: function() {
+										//alert("실패");
+									}
+				});
+			})//end 2
+			
+				// json-3 
+			$('#jsonObjectArray').on('click',function(){
+				$.ajax({
+					url:'jsonObjectArray.jsp'
+					,type:'get'
+					,dataType: 'json'
+					,success: function(res) {
+						code = "<ul>"
+							$.each(res, function(i) {				
+								code += "<li> 이름 : " + res[i].name + "</li>";
+								code += "<li> 주소 : " + res[i].addr + "</li>";
+								code += "<li> 전화번호 : " + res[i].tel + "</li>";
+								code += "<br>";
+								
+								})	
+									code += "</ul>"
+									$("#res4").html(code);
+									},
+									error: function() {
+										alert("실패");
+									}
+				});
+			})//end 3
+		});
+
+	</script>
+</head>
+<style>
+	div {
+		width: 200px;
+		height: auto;
+		float: left;
+		border: 1px solid gray;
+		background: #4de9c4;
+		margin: 10px
+	}
+
+</style>
+
+<body>
+	<button id="text">text</button>
+	<button id="json">json</button>
+	<button id="jsonObject">jsonObject</button>
+	<button id="jsonObjectArray">jsonObjectArray</button>
+	<br>
+	<div id="res1"></div>
+	<div id="res2"></div>
+	<div id="res3"></div>
+	<div id="res4"></div>
+</body>
+
+</html>

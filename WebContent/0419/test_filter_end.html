@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="../js/jquery-3.3.1.min.js"></script>
+	<script>
+		$(function() {
+		// 홀수번째의 
+			//$("div:odd:eq(0)")
+			$("div").filter(':odd').eq(0).css("background","green").end()
+				.eq(1).css("background","pink").end()
+				.eq(3).css("background","#58cec4");
+
+		});
+	</script>
+	<style>
+		div {
+			width: 60px;
+			height: 60px;
+			margin: 10px;
+			float: left;
+			border: 2px solid blue;
+		}
+		.orange {
+			background: orange;
+		}
+	</style>
+
+</head>
+
+<body>
+	<div>a</div>
+	<div>b</div>
+	<div>c</div>
+	<div>d</div>
+	<div>e</div>
+	<div class="orange">f</div>
+	<div>g</div>
+	<div>g</div>
+</body>
+</html>

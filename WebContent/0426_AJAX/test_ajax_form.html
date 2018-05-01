@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<script src="../js/jquery-3.3.1.min.js"></script>
+	<script>
+	$(function(){
+		$('#old').on('click', function(){
+			$('#ff').attr('action','old.jsp')
+			.attr('method','post')
+			.submit();
+		});
+		
+		//////////////////ajax 
+		$('#ajax').on('click',function(){
+				var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					$('#res').html(this.responseText);
+				}
+			};
+			//요청 get일때 old.jsp?name=$('#name').val()@addr=$('#addr').val()&tel=$('#tel').val()',true);
+			var data = "name=" + $('#name').val()+"&addr="+$('#addr').val()+"&tel="+$('#tel').val();
+			xhttp.open("post", "old.jsp", true);
+			xhttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+			xhttp.send(data);
+		})
+	});
+	</script>
+</head>
+<body>
+	<form id="ff" name="ff">
+		이름: <input type="text" id="name" name="name"><br>
+		주소: <input type="text" id="addr" name="addr"><br>
+		전화번호 <input type="text" id="tel" name="tel"><br>
+		<input id="old" type="button" value="기존방식전송">
+		<input id="ajax" type="button" value="ajax 방식전송">
+	</form>
+	<br>
+	<div id="res">
+		
+	</div>
+</body>
+</html>

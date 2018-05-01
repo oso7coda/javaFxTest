@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.3.1.min.js"></script>
+<script>
+	$(function(){
+		
+		$('#emp').click(function(){
+			$('div').empty();
+		})
+		
+		$('#rem').click(function(){
+			$('div').remove();
+		})
+		
+		$('.pp').click(function(){
+			$(this).css('font-size', '+=3px');
+		})
+		
+		$('#det').click(function(){
+			a = $('#p1').detach();	//p1이 삭제된다, 이벤트는 삭제x
+			
+			$(a).appendTo('body');	//추가후에 이벤트 확인
+		})
+		
+		$('#rem2').click(function(){
+			a = $('#p2').remove();	//p2가 삭제된다, 이벤트도 같이 삭제
+			$(a).appendTo('body');
+		})
+    })
+</script>
+</head>
+<style>
+	div{
+		padding : 10px;
+		width : 300px;
+		height : 350px;
+		background : pink;
+	}
+</style>
+<body>
+	
+	<div>
+		div text
+		<p>무궁화 꽃이 피었습니다.</p>
+	</div>
+	<br>
+	<button id="emp" type="button">empty(비우기)</button>
+	<button id="rem" type="button">remove(지우기)</button>
+	<br><hr>
+	
+	<p class="pp" id="p1">무궁화 꽃이...</p>
+	<p class="pp" id="p2">피었...</p>
+	<button id="det" type="button">detach(이벤트무삭제)</button>
+	<button id="rem2" type="button">remove(이벤트삭제)</button>
+	
+	
+	
+</body>
+</html>

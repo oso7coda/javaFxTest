@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<script src="../js/jquery-3.3.1.min.js"></script>
+	<script>
+		$(function() {
+			//전체 p를 선택
+			$("p").css("font-size", "50px");
+
+			//context 지정
+			$("p", document.forms[1]).css("color", "red");
+
+			$("div").on("click", function() {
+				//클릭하는 div = this 
+				//$("p",this).css("background","#d60e0e");
+				r = parseInt(Math.random()*256);
+				g = parseInt(Math.random()*256);
+				b = parseInt(Math.random()*256);
+				
+				//여기서 코딩하면 이클립스에 먹힌다
+				$("p",this).css("background","rgb("+r+","+g+","+b+")");
+				//$("p , div").css("border","3px solid red");
+				//띄우면 부모 자식 관계
+				//$("div p").css("background","yellow");
+				//컬러 지정하는 방법 여러가지 
+				//#adada hexColor or rgb(255,255,255) or rgb(60%,60%,80%)
+				
+			})
+		})
+	</script>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+
+<body>
+	<form action="">
+		<div>
+
+			<p>무궁화 꽃이 피었습니다1</p>
+		</div>
+	</form>
+	<form action="">
+		<div>
+			<p>무궁화 꽃이 피었습니다2</p>
+		</div>
+
+	</form>
+
+	<form action="">
+
+		<p>무궁화 꽃이 피었습니다3</p>
+	</form>
+</body>
+</html>

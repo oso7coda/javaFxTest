@@ -1,0 +1,49 @@
+<html>
+	<head>
+	<title>
+		sample
+	</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script>
+		$(function(){
+			$('h1').on('click',function(){
+				$(this).hide();
+				
+				//visible 기타 필터
+				if($('h1:visible').length == 0){
+					$('button').show();
+				}
+			
+			})//현재 실행중이 객체 = this
+			//end h1 function
+			
+			$('button').on('click',function(){
+				$('h1').show();
+				$(this).hide();
+			})
+		})
+		//: 필터링
+	</script>
+	<style>
+		button{
+			display: none;
+		}	
+	</style>
+</head>
+
+<body>
+	<h1>클릭하면 사라집니다1</h1>
+	<h1>클릭하면 사라집니다2</h1>
+	<h1>클릭하면 사라집니다3</h1>
+	<h1>클릭하면 사라집니다4</h1>
+	<h1>클릭하면 사라집니다5</h1>
+	<h1>클릭하면 사라집니다6</h1>
+	<h1>클릭하면 사라집니다7</h1>
+	<h1>클릭하면 사라집니다8</h1>
+	<h1>클릭하면 사라집니다9</h1>
+	<h1>클릭하면 사라집니다10</h1>
+	
+	<button type="button">보기이</button>
+</body>
+
+</html>

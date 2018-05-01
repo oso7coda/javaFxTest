@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="../js/jquery-3.3.1.min.js"></script>
+	<script>
+		$(function() {
+			str = "";
+			$('#contents').click(function() {
+				str = "Contents : 태그상관없이 자식의 내용 가져오기 \n"
+				$('div').contents().each(function(i) {
+					//태그 이름 비교 this.tagName == 'sapn'
+					//태그 네임 없을때 type비교 typeof this.tagName
+					if (typeof this.tagName == 'undefined') {
+						if ($(this).text().trim().length > 0) {
+							str += i + "번째 : 문자열" + $(this).text().trim() + "\n";
+						}
+					} else {
+						str += i + "번째 태그이름 : " + this.tagName + "=====>" + $(this).html() + "\n";
+					}
+				});
+				alert(str);
+			});	//end contents
+			
+			
+			$('#child').click(function() {
+				str = "children 태그가 있는 자식의 내용만 선택한다 \n";
+				$('div').children().each(function(i) {
+					str += i + "번째 태그 이름 ==>" + this.tagName + " : " + $(this).text() + "\n"
+				})
+				alert(str);
+			})	//end child button 
+			
+			$('#cont').click(function(){
+				$('div.d1').contents().wrap("<b/>");
+				$('div.d1').contents().css('color','blue').css('font-size','15px');
+			})
+			
+			$('#chi').click(function(){
+				$('div.d2').children().wrap("<b/>");
+				$('div.d2').children().css('color','blue').css('font-size','15px');
+			})
+		})
+	</script>
+	<style>
+		b{
+			background: cyan;
+		}
+	</style>
+</head>
+
+<body>
+	<div>
+		a
+		<p>a 진달래 꽃이 피었습니다</p>
+		<span>내부 span tag  무궁화 꽃이 피었습니다</span>
+	</div>
+	<button type="button" id="contents">btn-contents(태그상관없이)</button>
+	<button type="button" id="child">btn-child(태그내용 가져오기)</button>
+	<br><br>
+	<hr>
+	
+	
+	<strong>태그가 있거나 없거나 모든 자식은 b태그 color-blue로 변경</strong>
+	<div class="d1"><em>hellow world? em 태그가 있어요</em></div>
+	<div class="d1">hello jquery</div>
+	<br>
+	<button type="button" id="cont">모든 자식 변경</button>
+	<br>
+	<br>
+	<br>
+	<strong>태그가 있는 모든 자식은 b태그 color-blue로 변경</strong>
+	<div class="d2"><em>hellow world? em 태그가 있어요</em></div>
+	<div class="d2">hello jquery</div>
+	<br>
+	<button type="button" id="chi">태그가 있는 자식만 변경</button>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

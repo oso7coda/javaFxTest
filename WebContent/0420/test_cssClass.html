@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.3.1.min.js"></script>
+<script>
+	$(function() {
+		$("#col0").click(function(){
+			if($('p').hasClass("cony")){
+				$('p').removeClass("cony");
+			}else{
+			$('p').addClass("cony");
+			}
+		})
+		
+//		$("#col0").click(function(){
+//			$('p').toggleClass("cony");
+//		})
+		
+		$('p').click(function(){
+			$(this).addClass("important");
+		})
+		$('p').dblclick(function(){
+			$(this).removeClass("important");
+		})
+		$("#col1").click(function(){
+			$('p').addClass("changeColor");
+		})
+		$("#col2").click(function(){
+			$('p').removeClass("changeColor");
+		})
+	});
+</script>
+<style>
+	.important {
+		font-weight: bold;
+		font-size: 20px;
+		background-color: #00ff7b;
+	}
+	.cony{
+		font-size: 20px;
+	background-color: #f5af22;
+	}
+	.changeColor{
+		color: aquamarine;
+	}
+</style>
+</head>
+<body>
+<br>
+	<button id="col0">변경/해제</button>
+	<button id="col1">글자색변경</button>
+	<button id="col2">글자색해제</button>
+	<p>This is a paragraph.</p>
+	<p>This is a paragraph.</p>
+</body>
+</html>

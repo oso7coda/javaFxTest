@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.3.1.min.js"></script>
+<script>
+	$(function(){
+		a="";
+		
+		$('#start').click(function(){
+			clearInterval(a);
+			//$(this).prop('disabled', true);
+			a = setInterval(function(){
+										$('img:first').appendTo('div');
+								}, 200)
+		})
+		
+		$('#stop').click(function(){
+			clearInterval(a);
+		})
+		
+		$('#reverse').click(function(){
+			clearInterval(a);
+			a= setInterval(function(){
+										$('img:last').prependTo('div');
+								},200)
+		})
+    })
+</script>
+</head>
+<style>
+	img{
+		width:100px;
+		height:100px;
+	}
+</style>
+<body>
+	<div>
+		<img src="../images/image.1.jpg">
+		<img src="../images/image.2.jpg">
+		<img src="../images/image.3.jpg">
+		<img src="../images/image.4.jpg">
+		<img src="../images/pobi.jpg">
+		<img src="../images/image.5.jpg">
+		<img src="../images/image.6.jpg">
+		<img src="../images/pobi.jpg">
+		<img src="../images/image.7.jpg">
+		<img src="../images/pobi.jpg">
+	</div>
+	<br>
+	<button id="start" type="button">시작</button>
+	<button id="stop" type="button">끝</button>
+	<button id="reverse" type="button">거꾸로</button>
+	
+</body>
+</html>

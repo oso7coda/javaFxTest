@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script src="../js/jquery-3.3.1.min.js"></script>
+		<script>
+			$(function() {
+				$('#html').on('click', function(){
+					//body 내부의 태그포함한 모든 문자 가져오기
+					//alert($('body').html());
+					$("#htmlres").html($('body').html());
+				})
+				
+				$('#text').on('click', function(){
+					//body 내부의 모든 문자만가져오기
+					//alert($('body').text());
+					$('#textres').text($('body').text());
+					//$('#textres').html("<h1>안녕하세요</h1>");
+					$('#textres').text("<h1>안녕하세요</h1>");
+				})
+				
+				//p 선택 html버튼
+				$('#phtml').on('click',function(){
+					//alert($('p').html());//첫번째꺼 하나만
+					a = $('p').html();
+					$('#phtmlres').html(a);
+				})
+				
+				//p선택 text버튼
+				$('#ptext').on('click', function(){
+					//alert($('p').text());//
+					a = $('p').html();	//첫번째 인거 하나만 가져온다
+					$('#ptextres').text(a);
+					
+					//여러개의 p를 대상으로 가져오려면 반복루프를 실행
+					res="";
+//					$.each($('p'),function(i){
+//						res+=i+"번째"+ $(this).html()+"\n";
+//						
+//					})
+					$('p').each(function(i){
+						res+=i+"번째"+ $(this).html()+"\n";
+					})
+					alert(res);
+					
+					
+					//b = $('p').text();
+					//$(b).appendTo($('#ptextres'));
+					
+					
+				})
+				
+			})
+		</script>
+		<style>
+			div{
+				width: 50%;
+				height:auto;
+				border: 1px solid blue;
+			}
+		</style>
+	</head>
+	<body>
+	
+	<button id="html">body 선택 html()</button>
+	<button id="text">body 선택 text()</button>
+	
+	<button id="phtml">p 선택 html()</button>
+	<button id="ptext">p 선택 text()</button>
+	
+	<br>
+	<br>
+	<h1> html()와 text()</h1>
+		<p>
+			1<a href="http://www.naver.com">홍길동</a>
+		</p>
+		<p>
+			2<a href="http://www.naver.com">개나리</a>
+		</p>
+		<p>
+			3<a href="http://www.daum.net">진달래</a>
+		</p>
+		
+	<div id="htmlres"></div>	
+	<div id="textres"></div>
+	<div id="phtmlres"></div>	
+	<div id="ptextres"></div>	
+	
+	</body>
+</html>

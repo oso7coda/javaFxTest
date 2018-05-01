@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="../js/jquery-3.3.1.min.js"></script>
+	<script>
+		$(function() {
+			$('#run').on('click',function(){
+				//$('div').css('background','blue');
+				$('div:animated').css('background','green');
+			})
+			
+			//함수정의
+			function animated(){
+				$('ani').slideToggle("slow",animated);
+			}
+			//함수호출
+			animated();
+		});
+		
+	</script>
+	<style>
+		div {
+			float: left;
+			width: 100px;
+			height: 150px;
+			background: yellow;
+			margin: 10px
+		}
+	</style>
+</head>
+
+<body>
+	<button id="run">run</button>
+	<div></div>
+	<div id="ani"></div>
+	<div></div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+			<script src="../js/jquery-3.3.1.min.js"></script>
+	<script>
+		$(function(){
+			var hlist = document.getElementsByTagName('h1')[0];
+			//hlist.style.color="red";
+			
+			//오류다 hlist 가 dom 객체인데 jq메서드를 호출해서 오류남
+			//hlist.css('color','blue');
+			
+			//dom object 를 $함수를 이용해서 jquery로 wrapping하면 jq메서드 호출가능
+			$(hlist).css("color","#42efe9");
+		})
+	</script>
+</head>
+<body>
+	<h1> 따듯한 봄날 오후 ~~ </h1>
+</body>
+</html>

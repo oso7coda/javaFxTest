@@ -1,0 +1,28 @@
+<html>
+	<head>
+		<title>
+			
+		</title>
+			<script src="../js/jquery-3.3.1.min.js"></script>
+		<script>
+			$(function(){
+				$('*').css('background','#de86bb');
+				$('h1').css('color','blue');
+				//전체 배경색 변경
+				//h1 요소의 글자색을 파란색
+				//id가 para인 요소의 글자색은 녹색
+				//class 가 sample요소의 글자색은 빨강
+				$('#para').css('color','#37a205');
+				$('.sample').css('color','#df14a3');
+			})
+		</script>
+	</head>
+	
+	<body>
+	<h1> hellow jquery!</h1>
+	<h2 class="hello"> 안녕 제이쿼리</h2>
+	<br> 이름 : <input id="para" type="text">
+	<br> 비밀번호: <input class="sample" type="password"><br>
+	</body>
+	
+</html>

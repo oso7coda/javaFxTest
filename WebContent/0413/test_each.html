@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+		<script src="../js/jquery-3.3.1.min.js"></script>
+	<script>
+		$(function() {
+		res="";
+			//res+=$('p').html();
+//			$('p').each(function(){
+//			res+= $(this).html()+"\n";
+			$.each($('p'), function(){
+				res+= $(this).html()+"\n";
+			})
+			alert(res);
+		})
+	</script>
+
+
+</head>
+<body>
+
+	  <p>123<a>첫번째</a></p>
+      <div> <p>두번째</p> </div>
+      <div> <p>세번째</p><p>네번째</p> </div>
+
+</body>
+</html>
